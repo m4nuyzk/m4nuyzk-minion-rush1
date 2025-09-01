@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Minionzinho Runner — Toque para Jogar</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <canvas id="game" width="960" height="540" aria-label="Minionzinho Runner" role="img"></canvas>
+  </div>
+
+  <!-- HUD -->
+  <div class="hud" aria-live="polite">
+    <div class="topbar">
+      <div class="chip" id="score">🍌 0</div>
+      <div class="chip" id="level">Fase 1: Laboratório</div>
+      <div class="chip" id="speed">Velocidade x1.0</div>
+      <div class="chip" id="lives">❤❤❤</div>
+    </div>
+
+    <div class="center">
+      <div id="screen-start" class="screen show">
+        <div class="card">
+          <h1>Minionzinho Runner</h1>
+          <p>Pegue 🍌 bananas, desvie dos perigos e avance por fases com cenários diferentes.</p>
+          <p><strong>Controles</strong>: Toque ou <span class="kbd">Espaço</span> para pular •
+            Duplo toque / <span class="kbd">Shift</span> para <em>dash</em> (invencível por instantes).</p>
+          <p><strong>Power-ups</strong>: 🛡 Escudo (protege 1 batida) • 🧲 Ímã (puxa bananas).</p>
+          <button class="btn cta" id="btnPlay">Começar</button>
+        </div>
+      </div>
+
+      <div id="screen-level" class="screen">
+        <div class="card">
+          <h1 id="levelTitle">Fase 2</h1>
+          <p id="levelDesc">Novo cenário, novas regras. Pronto?</p>
+          <button class="btn cta" id="btnGo">Partiu!</button>
+        </div>
+      </div>
+
+      <div id="screen-gameover" class="screen">
+        <div class="card">
+          <h1>Fim de Jogo!</h1>
+          <p>Pontuação: <span id="finalScore">0</span> • Melhor: <span id="bestScore">0</span></p>
+          <button class="btn cta" id="btnRestart">Jogar de novo</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <button class="control" id="btnJump">⤴️ PULAR</button>
+      <button class="control" id="btnDash">⚡ DASH</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

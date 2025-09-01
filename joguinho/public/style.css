@@ -1,0 +1,67 @@
+:root{
+  --bg:#0b1020;
+  --fg:#e7f2ff;
+  --accent:#ffd84d; /* amarelo “banana” */
+  --accent2:#5bb1ff; /* azul “macacão” */
+  --danger:#ff6b6b;
+  --ok:#7cf780;
+  --panel:rgba(255,255,255,.08);
+}
+
+html,body{height:100%;}
+body{
+  margin:0;
+  background: radial-gradient(1200px 600px at 70% -10%, #1c2b54 0%, var(--bg) 55%) no-repeat fixed;
+  color:var(--fg);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, sans-serif;
+  touch-action: none;
+  -webkit-user-select: none; user-select: none;
+}
+
+.wrap{ display:grid; place-items:center; height:100%; width:100%; padding:10px; box-sizing:border-box; }
+
+canvas{
+  background: linear-gradient(#151a39 0%, #0d1130 60%);
+  border-radius: 18px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.45);
+  touch-action:none;
+}
+
+/* HUD */
+.hud{ position:fixed; inset:0; pointer-events:none; display:grid; grid-template-rows:auto 1fr auto; }
+.topbar{ display:flex; gap:10px; align-items:center; justify-content:space-between; padding:10px 14px;}
+.chip{
+  background:var(--panel);
+  backdrop-filter: blur(6px);
+  border:1px solid rgba(255,255,255,.12);
+  padding:8px 12px; border-radius:14px; font-weight:800; letter-spacing:.2px;
+}
+
+.center{ display:grid; place-items:center;}
+.btn{ pointer-events:auto; appearance:none; border:none; color:#0c0f1f; background:var(--accent); font-weight:900;
+  letter-spacing:.3px; padding:14px 18px; border-radius:16px; box-shadow: 0 8px 20px rgba(255,216,77,.35);
+  transform: translateZ(0); transition: transform .05s ease;
+}
+.btn:active{ transform: scale(.98); }
+.kbd{ background:#10163a; border:1px solid rgba(255,255,255,.12); border-radius:10px; padding:2px 6px; font-weight:700; }
+
+.controls{ position:fixed; left:0; right:0; bottom:10px; display:flex; gap:12px; justify-content:center; }
+.control{
+  pointer-events:auto; min-width:140px; text-align:center; font-weight:800; font-size:15px;
+  padding:14px 14px; border-radius:16px; border:1px solid rgba(255,255,255,.15);
+  background:linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.06));
+  color:var(--fg);
+  text-shadow: 0 1px 0 rgba(0,0,0,.35);
+}
+.control:active{ transform: scale(.98); }
+
+.screen{ position:fixed; inset:0; display:none; place-items:center; text-align:center; padding:20px; }
+.screen.show{ display:grid; background: radial-gradient(800px 400px at 50% 0%, rgba(255,255,255,.08), rgba(0,0,0,.5)); backdrop-filter: blur(6px); }
+.card{ max-width:680px; background: rgba(10,14,36,.7); border:1px solid rgba(255,255,255,.12); border-radius:22px; padding:26px; box-shadow: 0 10px 35px rgba(0,0,0,.45); }
+h1{ margin:0 0 8px; font-size: clamp(24px, 4.5vw, 36px); }
+p{ margin:0 0 14px; opacity:.92; }
+
+@media (max-width:420px){ .control{ min-width:120px; font-size:14px; } }
+
+/* Fitas parallax (cores por fase – aplicadas via inline fill no script) */
+.bg-layer { position:absolute; inset:0; pointer-events:none; }
